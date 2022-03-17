@@ -9,12 +9,13 @@ const Tickets = () => {
   const { tickets, isLoading, isSuccess } = useSelector(
     (state) => state.tickets
   );
+
   const dispatch = useDispatch();
 
   useEffect(() => {
     return () => {
       if (isSuccess) {
-        dispatch(reset);
+        dispatch(reset());
       }
     };
   }, [dispatch, isSuccess]);
@@ -28,9 +29,9 @@ const Tickets = () => {
   }
 
   return (
-    <div>
-      <h1>Hello</h1>
-    </div>
+    <>
+      <BackButton />
+    </>
   );
 };
 export default Tickets;
